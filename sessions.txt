@@ -1,0 +1,26 @@
+cookie with express and redis
+
+req.session.userId = user.id;
+
+e.g.
+{userId: 1} --> send that to redis
+
+1
+sess:secretkey --> {userId: 1}
+
+2
+express-session will set a cookie on my browser cryptsecretkey
+
+3
+when user makes a request
+cryptsecretkey --> sent to the server
+
+4
+decrypt the cookie 
+cryptsecretkey --> sess:secretkey
+
+5
+make a request to redis
+sess:secretkey --> {userId: 1}
+
+req.session = {userId: 1}
